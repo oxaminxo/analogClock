@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #d1dae3;
+}
+
+body.dark {
+    background: #091921;
+}
+
+.clock {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(clock.png);
+    background-size: cover;
+    border-radius: 50%;
+    border: 4px solid #cad3dc;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.5),
+                inset -8px -8px 15px rgba(255, 255, 255, 0.5),
+                     10px 10px 10px rgba(0, 0, 0, 0.3),
+                inset 10px 10px 10px rgba(0, 0, 0, 0.3); 
+}
+
+body.dark .clock {
+    border: 4px solid #091921;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+                inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                      0 15px 15px rgba(0, 0, 0, 0.3),
+                inset 0 15px 15px rgba(0, 0, 0, 0.3);  
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #008eff;
+    border-radius: 50%;
+    z-index: 1000;
+
+}
+
+body.dark .clock::before {
+    background-color: #fff;
+}
+
+.hour , .min , .sec {
+    position: absolute;
+}
+
+.hour , .hr {
+    width: 160px;
+    height: 160px;
+}
+
+.min , .mn {
+    width: 190px;
+    height: 190px;
+}
+
+.sec , .sc {
+    width: 230px;
+    height: 230px;
+}
+
+.hr , .mn , .sc {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hr::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 80px;
+    border-radius: 6px 6px 0 0;
+    z-index: 10;
+    background-color: #f0105e;
+}
+
+.mn::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 90px;
+    border-radius: 6px 6px 0 0;
+    z-index: 11;
+    background-color: #091921;
+}
+
+body.dark .mn::before {
+    background-color: #fff;
+}
+.sc::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    border-radius: 6px 6px 0 0;
+    z-index: 12;
+    background-color: #008eff;
+}
+
+
+.toggleClass {
+    position: absolute;
+    top: 30px;
+    right: 150px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #091921;
+    color: #091921;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.toggleClass::before {
+    position: absolute;
+    content: 'Dark Mode';
+    white-space: nowrap;
+    left: 30px;
+    letter-spacing: 1px;
+}
+
+body.dark .toggleClass {
+    background-color: #d1dae3;
+    color: #d1dae3;
+}
+
+body.dark .toggleClass::before {
+    content: 'Light Mode';
+}
